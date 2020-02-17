@@ -28,10 +28,19 @@ build {
     inline      = ["while [ ! -f /var/lib/cloud/instance/boot-finished ]; do echo 'Waiting for cloud-init...'; sleep 1; done"]
   }
 
-  # provisioner "file" {
-  #   destination = "/var/tmp/awslogs.conf"
-  #   source      = "awslogs.conf"
+  provisioner "shell" {
+    inline      = ["curl -sSL https://get.replicated.com/docker | sudo bash"]
+  }
+
+  # provisioner "shell" {
+  #   inline      = ["echo | openssl s_client -servername local -connect $(curl http://169.254.169.254/latest/meta-data/public-ipv4):8800 2>/dev/null | openssl x509 -noout -fingerprint | tee -a /var/tmp/"
+  #                 ]
   # }
+
+  provisioner "file" {
+    source      = "./tfe/"
+    destination = "/var/tmp"
+  }
 
   # provisioner "file" {
   #   destination = "/var/tmp/baseHED.sh"

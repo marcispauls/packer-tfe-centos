@@ -6,3 +6,8 @@ crash.log
 
 # For built boxes
 *.box
+
+# Additional files for build
+*/**.airgap
+*/**.rli
+
