@@ -1,4 +1,4 @@
-## packer HCL2 configuration to create a base centos7 image which is CIS benchmark-compliant
+## packer HCL2 configuration to create a base centos7 image with TFE baked in
 ## 2020:02:17::ml4
 #
 source "amazon-ebs" "packer-tfe-centos" {
