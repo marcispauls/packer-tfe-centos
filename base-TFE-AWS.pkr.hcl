@@ -28,6 +28,15 @@ build {
     inline      = ["while [ ! -f /var/lib/cloud/instance/boot-finished ]; do echo 'Waiting for cloud-init...'; sleep 1; done"]
   }
 
+# replicated and docker?
+#  curl -sSL https://get.replicated.com/docker | sudo bash
+
+
+
+
+
+
+
   # provisioner "file" {
   #   destination = "/var/tmp/awslogs.conf"
   #   source      = "awslogs.conf"

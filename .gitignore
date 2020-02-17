@@ -6,3 +6,8 @@ crash.log
 
 # For built boxes
 *.box
+
+# Externally added files
+*.tar.gz
+*.rli
+*.airgap
