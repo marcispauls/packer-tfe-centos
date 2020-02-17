@@ -10,11 +10,11 @@ source "amazon-ebs" "packer-tfe-centos" {
   force_deregister            = true
   instance_type               = "t2.medium"
   kms_key_id                  = ""
-  region                      = var.aws_region
+  region                      = "${var.aws_region}"
   shutdown_behavior           = "terminate"
-  source_ami                  = var.aws_ami
-  ssh_keypair_name            = var.ssh_keypair_name
-  ssh_private_key_file        = var.ssh_private_key_file
+  source_ami                  = "${var.aws_ami}"
+  ssh_keypair_name            = "${var.ssh_keypair_name}"
+  ssh_private_key_file        = "${var.ssh_private_key_file}"
   ssh_username                = "centos"
 }
 
