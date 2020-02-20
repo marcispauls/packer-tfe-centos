@@ -150,7 +150,8 @@ build {
     inline      = ["sudo curl -Lo /opt/tfe/replicated.tar.gz https://s3.amazonaws.com/replicated-airgap-work/replicated.tar.gz"]
   }
 
-  ## base-centos.sh rearranges file systems (including noexec on /tmp which breaks packer shell provisioner) so watch ordering.
+  ## base-centos.sh rearranges file systems (including noexec on /tmp which means adding remote_folder) so watch ordering.
+  ## See https://packer.io/docs/provisioners/shell.html#remote_folder
   #
   provisioner "shell" {
     inline      = ["/opt/tfe/base-centos.sh"]
