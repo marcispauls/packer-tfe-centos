@@ -4,6 +4,7 @@ The aim is to just clone/fork to your local machine, add the necessary files (se
 The build just puts the files you put in the `tfe` directory in `/opt/tfe` on the machine image.  Your airgapped Terraform Enterprise deployment config can set up from there.
 This bake uses latest marketplace base Centos 7 images for each cloud.  Switch this for an appropriate alternative following the Main Steps in order.
 Tested with packer 1.5.4 on MacOS Catalina.
+The build will automatically install the latest replicated.tar.gz airgap tar on the image.
 
 # Prerequisites
 1. Packer 1.5.x                   # HCL2 pkr config
