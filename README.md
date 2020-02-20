@@ -5,7 +5,7 @@ Tested with packer 1.5.4 on MacOS Catalina.
 
 # Prerequisites
 1. Packer 1.5.x                   # HCL2 pkr config
-1. Local Linux or Unix machine    
+1. Local Linux or Unix machine
 1. Cloud account(s) set up        # Packer will use the credentials in the local account (e.g. ${HOME}/.aws)
 1. Download replicated.tar.gz     # Ensure the version of replicated you want to use is compatible with the TFE airgap package
                                   # tar -zxOf replicated.tar.gz install.sh | grep REPLICATED_VERSION | head -1 | cut -d'"' -f2
@@ -15,5 +15,5 @@ Tested with packer 1.5.4 on MacOS Catalina.
 
 # Main Steps
 1. Edit the variables.pkr.hcl and adjust the contents to match your setup for the respective clouds you wish to build for
-2. `$ packer build base-TFE-AWS.pkr.hcl`     # For just an AWS AMI
+2. `GITROOT$ packer build base-TFE-AWS.pkr.hcl`     # For just an AWS AMI
 

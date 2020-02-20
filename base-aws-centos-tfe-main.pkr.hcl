@@ -132,22 +132,28 @@ build {
     inline      = ["while [ ! -f /var/lib/cloud/instance/boot-finished ]; do echo 'Waiting for cloud-init...'; sleep 1; done"]
   }
 
+  provisioner "shell" {
+    inline      = ["sudo mkdir -p /opt/tfe && sudo chmod -R 755 /opt/tfe && sudo chown -R centos:centos /opt/tfe"]
+  }
+
   provisioner "file" {
     source      = "base-centos.sh"
-    destination = "/tmp/"
-  }
-
-  provisioner "shell" {
-    inline      = ["sudo /tmp/base-centos.sh"]
-  }
-
-  provisioner "shell" {
-    inline      = ["curl -sSL https://get.replicated.com/docker | sudo bash"]
+    destination = "/opt/tfe/"
   }
 
   provisioner "file" {
     source      = "./tfe/"
-    destination = "/var/tmp"
+    destination = "/opt/tfe"
+  }
+
+  provisioner "shell" {
+    inline      = ["sudo curl -Lo /opt/tfe/replicated.tar.gz https://s3.amazonaws.com/replicated-airgap-work/replicated.tar.gz"]
+  }
+
+  ## base-centos.sh rearranges file systems (including noexec on /tmp which breaks packer shell provisioner) so watch ordering.
+  #
+  provisioner "shell" {
+    inline      = ["/opt/tfe/base-centos.sh"]
   }
 
   # provisioner "shell" {
@@ -159,7 +165,7 @@ build {
   #   source      = "awslogs.conf"
   # }
 
-  ## AWS 
+  ## AWS
   #
   # provisioner "file" {
   #   source      = "awslogs.conf"
