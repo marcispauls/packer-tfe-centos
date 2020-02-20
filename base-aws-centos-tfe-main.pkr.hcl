@@ -133,7 +133,7 @@ build {
   }
 
   provisioner "shell" {
-    inline      = ["sudo mkdir -p /opt/tfe && sudo chmod -R 755 /opt/tfe && sudo chown -R centos:centos /opt/tfe"]
+    inline      = ["sudo mkdir -p /opt/tfe && sudo chmod 755 /opt/tfe && sudo chown centos:centos /opt/tfe"]
   }
 
   provisioner "file" {
@@ -148,6 +148,10 @@ build {
 
   provisioner "shell" {
     inline      = ["sudo curl -Lo /opt/tfe/replicated.tar.gz https://s3.amazonaws.com/replicated-airgap-work/replicated.tar.gz"]
+  }
+
+  provisioner "shell" {
+    inline      = ["sudo chmod 750 /opt/tfe/* && sudo chown centos:centos /opt/tfe/*"]
   }
 
   ## base-centos.sh rearranges file systems (including noexec on /tmp which means adding remote_folder) so watch ordering.
