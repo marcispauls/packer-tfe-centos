@@ -7,14 +7,7 @@ crash.log
 # For built boxes
 *.box
 
-<<<<<<< HEAD
-# Additional files for build
-*/**.airgap
-*/**.rli
-
-=======
-# Externally added files
+# Externally added files not for commit!
 *.tar.gz
 *.rli
 *.airgap
->>>>>>> 4c388ff9c57901233c37eff384c9d4a4efdd31c3
