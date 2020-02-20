@@ -11,11 +11,11 @@ Opinionated, hardened, minimal CentOS 7-based packer config to bake AWS, Azure a
 * Builds for AWS only at this point
 
 # Prerequisites
-1. Packer 1.5.x                   # HCL2 pkr config
+1. Packer 1.5.x  (HCL configuration)
 1. Local Linux or Unix machine
-1. Cloud account(s) set up        # Packer will use the credentials in the local account (e.g. ${HOME}/.aws) so ensure you have the profile set correctly first
-1. Download the TFE airgap pkg    # The new TFE package you need on board
-1. Download your licence file     # Your friendly neightbourhood TAM or SE will provide this to you
+1. Cloud account(s) set up - Packer will use the credentials in the local account (e.g. ${HOME}/.aws) so ensure you have the profile set correctly first
+1. Download the TFE airgap pkg
+1. Download your licence file - Your friendly neightbourhood TAM or SE will provide this to you
 
 # Main Steps
 1. Edit base-aws-centos-tfe-vars.pkr.hcl and adjust the contents to match your setup for the respective clouds you wish to build for
