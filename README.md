@@ -7,6 +7,9 @@ Opinionated, hardened, minimal CentOS 7-based packer config to bake AWS, Azure a
 * The build will automatically install the latest replicated.tar.gz airgap tar on the image.
 * Tested with packer 1.5.4 on MacOS Catalina.
 
+# Current State
+* Builds for AWS only at this point
+
 # Prerequisites
 1. Packer 1.5.x                   # HCL2 pkr config
 1. Local Linux or Unix machine
