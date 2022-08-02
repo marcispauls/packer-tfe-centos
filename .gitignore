@@ -11,3 +11,4 @@ crash.log
 *.tar.gz
 *.rli
 *.airgap
+.vscode/*log
